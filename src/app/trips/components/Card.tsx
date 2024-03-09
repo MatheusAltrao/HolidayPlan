@@ -22,7 +22,7 @@ const Card = ({ trip }: ICard) => {
                 </div>
 
                 <Button
-                    title='Apagar viajem'
+                    title='Apagar viagem'
                     className='hover:text-red-600'
                     size={'icon'}
                     variant={'outline'}

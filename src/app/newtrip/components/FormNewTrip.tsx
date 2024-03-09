@@ -84,7 +84,7 @@ const FormNewTrip = ({ userId }: IFormNewTrip) => {
                     <Input
                         name='title'
                         type='text'
-                        placeholder='Viajem de aniversário'
+                        placeholder='Viagem de aniversário'
                         error={errors.title?.message}
                         register={register}
                     />
