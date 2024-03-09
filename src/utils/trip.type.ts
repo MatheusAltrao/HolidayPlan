@@ -1,4 +1,4 @@
-export interface ITrip {
+export interface TripProps {
     id: string;
     title: string;
     local: string;

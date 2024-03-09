@@ -1,22 +1,22 @@
 import { Button } from '@/components/ui/button';
 
-import { ITrip } from '@/utils/trip.type';
+import { TripProps } from '@/utils/trip.type';
 import { useRouter } from 'next/navigation';
 import { Eye, MapPin, Trash, Users, X } from 'lucide-react';
 import Link from 'next/link';
 import { api } from '@/lib/api';
 import DialogToDeleteTrip from './DialogToDeleteTrip';
 
-interface ICard {
-    trip: ITrip;
+interface CardProps {
+    trip: TripProps;
 }
 
-const Card = ({ trip }: ICard) => {
+const Card = ({ trip }: CardProps) => {
     return (
         <div className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
             <div className='flex justify-between'>
                 <div className='space-y-0.5'>
-                    <p className='text-xs text-zinc-400'>
+                    <p className='text-sm text-zinc-400'>
                         {trip.startDate} - {trip.endDate}
                     </p>
                     <h3 className='text-xl font-bold '>{trip.title}</h3>{' '}

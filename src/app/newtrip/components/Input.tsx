@@ -2,7 +2,7 @@
 
 import { RegisterOptions, UseFormRegister } from 'react-hook-form';
 
-interface IInput {
+interface InputProps {
     type: string;
     placeholder: string;
     name: string;
@@ -11,7 +11,7 @@ interface IInput {
     rules?: RegisterOptions;
 }
 
-const Input = ({ name, placeholder, register, rules, type, error }: IInput) => {
+const Input = ({ name, placeholder, register, rules, type, error }: InputProps) => {
     return (
         <div className='w-full space-y-1'>
             <input

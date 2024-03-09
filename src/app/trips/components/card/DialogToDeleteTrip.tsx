@@ -2,15 +2,15 @@
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { api } from '@/lib/api';
-import { ITrip } from '@/utils/trip.type';
+import { TripProps } from '@/utils/trip.type';
 import { Trash, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-interface IDialogToDeleteTrip {
-    trip: ITrip;
+interface DialogToDeleteTripProps {
+    trip: TripProps;
 }
 
-const DialogToDeleteTrip = ({ trip }: IDialogToDeleteTrip) => {
+const DialogToDeleteTrip = ({ trip }: DialogToDeleteTripProps) => {
     const router = useRouter();
 
     async function handleDeleteTrip() {

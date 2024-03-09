@@ -31,11 +31,11 @@ const schema = z.object({
 
 type IFormData = z.infer<typeof schema>;
 
-interface IFormNewTrip {
+interface FormNewTripProps {
     userId: string;
 }
 
-const FormNewTrip = ({ userId }: IFormNewTrip) => {
+const FormNewTrip = ({ userId }: FormNewTripProps) => {
     const [startDate, setStartDate] = useState<Date | undefined>(new Date());
     const [endDate, setEndDate] = useState<Date | undefined>(undefined);
     const router = useRouter();
