@@ -1,7 +1,11 @@
 import { Button } from '@/components/ui/button';
+
 import { ITrip } from '@/utils/trip.type';
-import { MapPin, Trash, Users } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { Eye, MapPin, Trash, Users, X } from 'lucide-react';
 import Link from 'next/link';
+import { api } from '@/lib/api';
+import DialogToDeleteTrip from './DialogToDeleteTrip';
 
 interface ICard {
     trip: ITrip;
@@ -9,10 +13,7 @@ interface ICard {
 
 const Card = ({ trip }: ICard) => {
     return (
-        <Link
-            href={'/trips/123'}
-            className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'
-        >
+        <div className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
             <div className='flex justify-between'>
                 <div className='space-y-0.5'>
                     <p className='text-xs text-zinc-400'>
@@ -20,15 +21,20 @@ const Card = ({ trip }: ICard) => {
                     </p>
                     <h3 className='text-xl font-bold '>{trip.title}</h3>{' '}
                 </div>
+                <div className='flex items-center gap-2'>
+                    <Link href={'/trips/123'}>
+                        <Button
+                            title='Ver viagem'
+                            className='hover:text-blue-600'
+                            size={'icon'}
+                            variant={'outline'}
+                        >
+                            <Eye size={20} />
+                        </Button>
+                    </Link>
 
-                <Button
-                    title='Apagar viagem'
-                    className='hover:text-red-600'
-                    size={'icon'}
-                    variant={'outline'}
-                >
-                    <Trash size={20} />
-                </Button>
+                    <DialogToDeleteTrip trip={trip} />
+                </div>
             </div>
 
             <p className='text-zinc-500 text-sm break-words h-[50px] '>
@@ -46,7 +52,7 @@ const Card = ({ trip }: ICard) => {
                     <span>{trip.participants}</span>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 

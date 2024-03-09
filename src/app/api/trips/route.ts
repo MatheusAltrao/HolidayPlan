@@ -3,6 +3,30 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import prismaClient from '@/lib/prisma';
 
+export async function DELETE(req: Request) {
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user) {
+        return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(req.url);
+    const userId = searchParams.get('id');
+
+    try {
+        await prismaClient.trips.delete({
+            where: {
+                id: userId as string,
+            },
+        });
+
+        return NextResponse.json({ message: 'Trip deleted successfully!' });
+    } catch (error) {
+        console.log(error);
+        return NextResponse.json({ error: 'Failed delete trip' }, { status: 400 });
+    }
+}
+
 export async function POST(req: Request) {
     const session = await getServerSession(authOptions);
 

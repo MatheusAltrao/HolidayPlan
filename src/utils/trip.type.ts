@@ -1,4 +1,5 @@
 export interface ITrip {
+    id: string;
     title: string;
     local: string;
     description: string;
