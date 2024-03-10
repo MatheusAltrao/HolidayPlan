@@ -77,13 +77,13 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Origem</p>
                                 <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    teste
+                                    {trip?.destiny}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Destino</p>
                                 <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.local}
+                                    {trip?.origin}
                                 </div>
                             </div>
 

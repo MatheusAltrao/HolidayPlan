@@ -1,7 +1,8 @@
 export interface TripProps {
     id: string;
     title: string;
-    local: string;
+    origin: string;
+    destiny: string;
     description: string;
     startDate?: string | null;
     endDate?: string | null;

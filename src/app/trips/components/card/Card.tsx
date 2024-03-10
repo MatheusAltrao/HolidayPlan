@@ -45,7 +45,7 @@ const Card = ({ trip }: CardProps) => {
             <div className='flex items-center justify-between text-zinc-100'>
                 <div className='flex items-center gap-1'>
                     <MapPin size={16} />
-                    <p>{trip.local}</p>
+                    <p>{trip.destiny}</p>
                 </div>
 
                 <div className='flex items-center gap-1'>

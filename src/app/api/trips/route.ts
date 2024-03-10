@@ -34,14 +34,24 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
     }
 
-    const { title, local, participants, startDate, endDate, budget, description, userId } =
-        await req.json();
+    const {
+        title,
+        origin,
+        destiny,
+        participants,
+        startDate,
+        endDate,
+        budget,
+        description,
+        userId,
+    } = await req.json();
 
     try {
         await prismaClient.trips.create({
             data: {
                 title,
-                local,
+                origin,
+                destiny,
                 participants,
                 startDate,
                 endDate,
@@ -67,7 +77,7 @@ export async function PUT(req: Request) {
     const { searchParams } = new URL(req.url);
     const tripId = searchParams.get('id');
 
-    const { title, local, participants, startDate, endDate, budget, description, userId } =
+    const { title, origin, destiny, participants, startDate, endDate, budget, description } =
         await req.json();
 
     try {
@@ -78,7 +88,8 @@ export async function PUT(req: Request) {
             },
             data: {
                 title,
-                local,
+                origin,
+                destiny,
                 participants,
                 startDate,
                 endDate,

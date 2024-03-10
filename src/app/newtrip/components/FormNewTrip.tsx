@@ -14,7 +14,8 @@ import Input from './Input';
 
 const schema = z.object({
     title: z.string().min(1, 'Título obrigatório'),
-    local: z.string().min(1, 'Local obrigatório'),
+    origin: z.string().min(1, 'origem obrigatório'),
+    destiny: z.string().min(1, 'origem obrigatório'),
     participants: z
         .string()
         .min(1, 'Participantes obrigatório.')
@@ -61,7 +62,8 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
 
         await api.post('/api/trips', {
             title: data.title,
-            local: data.local,
+            origin: data.origin,
+            destiny: data.destiny,
             participants: data.participants,
             startDate: startDate?.toLocaleDateString(),
             endDate: endDate?.toLocaleDateString(),
@@ -74,7 +76,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(handleRegisterTrip)} className='w-full  space-y-8 '>
+        <form onSubmit={handleSubmit(handleRegisterTrip)} className='w-full  space-y-8 pb-8 '>
             <div className='gap-4 grid grid-cols-2 w-full'>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
@@ -89,20 +91,20 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                         register={register}
                     />
                 </div>
-                <div className='space-y-2 w-full'>
+                <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Local</p>
+                        <p>Orçamento</p>
                     </label>
 
                     <Input
-                        name='local'
-                        type='text'
-                        placeholder='Brasil'
-                        error={errors.local?.message}
+                        name='budget'
+                        type='string'
+                        placeholder='R$ 2500,00'
+                        error={errors.budget?.message}
                         register={register}
                     />
                 </div>
-                <div className='space-y-2 w-full'>
+                <div className='space-y-2 w-full col-span-2'>
                     <label>
                         <p>Participantes</p>
                     </label>
@@ -112,6 +114,32 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                         type='number'
                         placeholder='2'
                         error={errors.participants?.message}
+                        register={register}
+                    />
+                </div>
+                <div className='space-y-2 w-full'>
+                    <label>
+                        <p>Origem</p>
+                    </label>
+
+                    <Input
+                        name='origin'
+                        type='text'
+                        placeholder='Brasil'
+                        error={errors.origin?.message}
+                        register={register}
+                    />
+                </div>
+                <div className='space-y-2 w-full'>
+                    <label>
+                        <p>Destino</p>
+                    </label>
+
+                    <Input
+                        name='destiny'
+                        type='text'
+                        placeholder='Brasil'
+                        error={errors.destiny?.message}
                         register={register}
                     />
                 </div>
@@ -183,19 +211,6 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                         </PopoverContent>
                     </Popover>
                 </div>
-                <div className='space-y-2 w-full col-span-2'>
-                    <label>
-                        <p>Orçamento</p>
-                    </label>
-
-                    <Input
-                        name='budget'
-                        type='string'
-                        placeholder='R$ 2500,00'
-                        error={errors.budget?.message}
-                        register={register}
-                    />
-                </div>
                 <div className='space-y-2 w-full col-span-2 '>
                     <label>
                         <p>Descrição</p>
@@ -220,7 +235,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
             <Button
                 type='submit'
                 variant={'outline'}
-                className='w-full h-10 bg-blue-600 hover:bg-blue-700 font-bold text-lg gap-2 '
+                className='w-full h-10 bg-blue-600 hover:bg-blue-700 font-bold text-lg gap-2 border-none '
             >
                 Adicionar Viagem <Plane />
             </Button>

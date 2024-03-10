@@ -11,7 +11,8 @@ datasource db {
 model Trips {
   id           String @id @default(auto()) @map("_id") @db.ObjectId // id unico
   title        String
-  local        String
+  origin       String
+  destiny      String
   description  String
   participants String
   startDate    String
