@@ -81,7 +81,6 @@ export async function PUT(req: Request) {
         await req.json();
 
     try {
-        console.log('iniciou');
         await prismaClient.trips.update({
             where: {
                 id: tripId as string,

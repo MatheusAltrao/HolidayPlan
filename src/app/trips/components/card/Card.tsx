@@ -1,10 +1,7 @@
 import { Button } from '@/components/ui/button';
-
 import { TripProps } from '@/utils/trip.type';
-import { useRouter } from 'next/navigation';
 import { Eye, MapPin, Trash, Users, X } from 'lucide-react';
 import Link from 'next/link';
-import { api } from '@/lib/api';
 import DialogToDeleteTrip from './DialogToDeleteTrip';
 
 interface CardProps {
@@ -14,12 +11,12 @@ interface CardProps {
 const Card = ({ trip }: CardProps) => {
     return (
         <div className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
-            <div className='flex justify-between'>
+            <div className='flex items-center justify-between'>
                 <div className='space-y-0.5 w-full'>
                     <p className='text-sm text-zinc-400'>
                         {trip.startDate} - {trip.endDate}
                     </p>
-                    <h3 className='text-xl font-bold truncate max-w-[240px]'>{trip.title}</h3>{' '}
+                    <h3 className='text-xl font-bold truncate '>{trip.title}</h3>{' '}
                 </div>
 
                 <div className='flex items-center gap-2'>

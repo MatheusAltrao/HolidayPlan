@@ -1,11 +1,12 @@
 import ContainerDiv from '@/components/containerDiv/ContainerDiv';
 import { authOptions } from '@/lib/auth';
-import { ArrowLeft, Pen, StickyNote } from 'lucide-react';
+import { Pen, StickyNote } from 'lucide-react';
 import { getServerSession } from 'next-auth';
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import prismaClient from '@/lib/prisma';
 import { Button } from '@/components/ui/button';
+import BackToHome from '@/components/backToHome/BackToHome';
+import Link from 'next/link';
 
 interface GetTripByIdProps {
     params: {
@@ -29,26 +30,22 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
 
     return (
         <ContainerDiv>
-            <div className='space-y-8'>
-                <div className=' inline-block'>
-                    <Link
-                        href={'/trips'}
-                        className='flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity'
-                    >
-                        <ArrowLeft size={20} /> <span>Voltar</span>
-                    </Link>
-                </div>
+            <div className='space-y-4'>
+                <BackToHome />
 
                 <div className='space-y-4'>
                     <div className='flex items-center justify-between'>
                         <h1 className='text-2xl  font-semibold truncate'>{trip?.title}</h1>
                         <div className='flex items-center justify-end gap-2'>
-                            <Button
-                                className='gap-2  font-bold  border-none bg-red-600 hover:bg-red-700'
-                                variant={'outline'}
-                            >
-                                Gerar PDF <StickyNote size={18} />
-                            </Button>
+                            <Link href={`/createpdf/${trip?.id}`}>
+                                <Button
+                                    className='gap-2  font-bold  border-none bg-red-600 hover:bg-red-700'
+                                    variant={'outline'}
+                                >
+                                    Gerar PDF <StickyNote size={18} />
+                                </Button>
+                            </Link>
+
                             <Button
                                 className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
                                 variant={'outline'}
@@ -58,7 +55,10 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                         </div>
                     </div>
 
-                    <div className='p-8   rounded-lg bg-zinc-100   flex flex-col gap-8'>
+                    <div
+                        id='content-id'
+                        className='p-8   rounded-lg bg-zinc-100   flex flex-col gap-8'
+                    >
                         <div className=' flex items-center justify-between '>
                             <div className='flex items-center  gap-1 w-[220px] bg-green-400 px-2 py-1 rounded '>
                                 <h2 className='text-zinc-900 font-semibold text-lg '>Orçamento:</h2>

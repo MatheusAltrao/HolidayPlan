@@ -6,7 +6,7 @@ export interface TripProps {
     description: string;
     startDate?: string | null;
     endDate?: string | null;
-    badge?: string | null;
+    budget?: string | null;
     participants: string | null;
     userId: string | null;
 }
