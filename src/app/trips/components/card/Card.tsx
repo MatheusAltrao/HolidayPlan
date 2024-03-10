@@ -15,14 +15,15 @@ const Card = ({ trip }: CardProps) => {
     return (
         <div className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
             <div className='flex justify-between'>
-                <div className='space-y-0.5'>
+                <div className='space-y-0.5 w-full'>
                     <p className='text-sm text-zinc-400'>
                         {trip.startDate} - {trip.endDate}
                     </p>
-                    <h3 className='text-xl font-bold '>{trip.title}</h3>{' '}
+                    <h3 className='text-xl font-bold truncate max-w-[240px]'>{trip.title}</h3>{' '}
                 </div>
+
                 <div className='flex items-center gap-2'>
-                    <Link href={'/trips/123'}>
+                    <Link href={`/trips/${trip.id}`}>
                         <Button
                             title='Ver viagem'
                             className='hover:text-blue-600'

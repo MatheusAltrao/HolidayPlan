@@ -11,16 +11,16 @@ export async function DELETE(req: Request) {
     }
 
     const { searchParams } = new URL(req.url);
-    const userId = searchParams.get('id');
+    const tripId = searchParams.get('id');
 
     try {
         await prismaClient.trips.delete({
             where: {
-                id: userId as string,
+                id: tripId as string,
             },
         });
 
-        return NextResponse.json({ message: 'Trip deleted successfully!' });
+        return NextResponse.json({ message: 'Trip deleted successfully!' }, { status: 200 });
     } catch (error) {
         console.log(error);
         return NextResponse.json({ error: 'Failed delete trip' }, { status: 400 });
@@ -54,5 +54,40 @@ export async function POST(req: Request) {
         return NextResponse.json({ message: 'Create new trip' });
     } catch (error) {
         return NextResponse.json({ error: 'Failed create new trip' }, { status: 400 });
+    }
+}
+
+export async function PUT(req: Request) {
+    const session = await getServerSession(authOptions);
+
+    if (!session || !session.user) {
+        return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(req.url);
+    const tripId = searchParams.get('id');
+
+    const { title, local, participants, startDate, endDate, budget, description, userId } =
+        await req.json();
+
+    try {
+        console.log('iniciou');
+        await prismaClient.trips.update({
+            where: {
+                id: tripId as string,
+            },
+            data: {
+                title,
+                local,
+                participants,
+                startDate,
+                endDate,
+                budget,
+                description,
+            },
+        });
+        return NextResponse.json({ message: 'Updated  trip' });
+    } catch (error) {
+        return console.log(error);
     }
 }
