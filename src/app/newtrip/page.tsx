@@ -18,7 +18,7 @@ const NewTrips = async () => {
                 <div className='space-y-4'>
                     <BackToHome />
                     <div className='flex items-center justify-between'>
-                        <h2 className='text-2xl font-semibold'>Criar nova viagem</h2>
+                        <h2 className='title'>Criar novo Plano</h2>
                     </div>
                 </div>
 

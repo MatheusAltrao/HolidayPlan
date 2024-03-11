@@ -1,7 +1,7 @@
 'use client';
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
+
 import { Button } from '@/components/ui/button';
-import { CalendarCheck, Plane } from 'lucide-react';
+import { CalendarCheck, LoaderCircle, Plane } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -27,7 +27,7 @@ const schema = z.object({
         .string()
         .min(1, 'Orçamento obrigatório.')
         .refine((value) => /^\d+$/.test(value), 'O campo Orçamento deve conter apenas números.'),
-    description: z.string().min(1, 'Coloque as informacoes sobre a viagem '),
+    description: z.string().min(1, 'Coloque as informacoes sobre o plano '),
 });
 
 type IFormData = z.infer<typeof schema>;
@@ -40,6 +40,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
     const [startDate, setStartDate] = useState<Date | undefined>(new Date());
     const [endDate, setEndDate] = useState<Date | undefined>(undefined);
     const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if (startDate) {
@@ -58,21 +59,24 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
     });
 
     async function handleRegisterTrip(data: IFormData) {
-        console.log(data);
-
-        await api.post('/api/trips', {
-            title: data.title,
-            origin: data.origin,
-            destiny: data.destiny,
-            participants: data.participants,
-            startDate: startDate?.toLocaleDateString(),
-            endDate: endDate?.toLocaleDateString(),
-            budget: data.budget,
-            description: data.description,
-            userId: userId,
-        });
-        router.replace('/trips');
-        router.refresh();
+        setIsLoading(true);
+        try {
+            await api.post('/api/trips', {
+                title: data.title,
+                origin: data.origin,
+                destiny: data.destiny,
+                participants: data.participants,
+                startDate: startDate?.toLocaleDateString(),
+                endDate: endDate?.toLocaleDateString(),
+                budget: data.budget,
+                description: data.description,
+                userId: userId,
+            });
+            router.replace('/trips');
+            router.refresh();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
@@ -172,7 +176,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                                 selected={startDate}
                                 onSelect={setStartDate}
                                 fromDate={new Date()}
-                                className='rounded '
+                                className='rounded-md '
                             />
                         </PopoverContent>
                     </Popover>
@@ -205,7 +209,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                                 mode='single'
                                 selected={endDate}
                                 onSelect={setEndDate}
-                                className='rounded '
+                                className='rounded-md '
                                 fromDate={startDate}
                             />
                         </PopoverContent>
@@ -220,7 +224,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                         <textarea
                             {...register('description')}
                             placeholder='Visitar os monumentos e ...'
-                            className='w-full placeholder:text-zinc-400 bg-zinc-900 focus:outline-none rounded p-2 h-[140px] resize-none  '
+                            className='w-full placeholder:text-zinc-400 bg-zinc-900 focus:outline-none rounded-md p-2 h-[140px] resize-none  '
                         />
 
                         {errors.description && (
@@ -233,11 +237,21 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
             </div>
 
             <Button
+                disabled={isLoading}
                 type='submit'
                 variant={'outline'}
                 className='w-full h-10 bg-blue-600 hover:bg-blue-700 font-bold text-lg gap-2 border-none '
             >
-                Adicionar Viagem <Plane />
+                {isLoading ? (
+                    <div>
+                        <LoaderCircle className='animate-spin' size={20} />
+                    </div>
+                ) : (
+                    <div className='flex items-center gap-2'>
+                        {' '}
+                        Adicionar Viagem <Plane />
+                    </div>
+                )}
             </Button>
         </form>
     );
