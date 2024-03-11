@@ -8,20 +8,20 @@ import { Button } from '@/components/ui/button';
 import BackToHome from '@/components/backToHome/BackToHome';
 import Link from 'next/link';
 
-interface GetTripByIdProps {
+interface GetplanByIdProps {
     params: {
         id: string;
     };
 }
 
-const GetTripById = async ({ params }: GetTripByIdProps) => {
+const GetPlanById = async ({ params }: GetplanByIdProps) => {
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         redirect('/');
     }
 
-    const trip = await prismaClient.trips.findFirst({
+    const plan = await prismaClient.plans.findFirst({
         where: {
             userId: session.user.id,
             id: params.id,
@@ -35,9 +35,9 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
 
                 <div className='space-y-4'>
                     <div className='flex items-center justify-between'>
-                        <h1 className='title truncate'>{trip?.title}</h1>
+                        <h1 className='title truncate'>{plan?.title}</h1>
                         <div className='flex items-center justify-end gap-2'>
-                            <Link href={`/createpdf/${trip?.id}`}>
+                            <Link href={`/createpdf/${plan?.id}`}>
                                 <Button
                                     className='gap-2  font-bold  border-none bg-red-600 hover:bg-red-700'
                                     variant={'outline'}
@@ -60,15 +60,15 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                         className='p-8   rounded-lg bg-zinc-100   flex flex-col gap-8'
                     >
                         <div className=' flex items-center justify-between '>
-                            <div className='flex items-center  gap-1 w-[220px] bg-green-400 px-2 py-1 rounded-md '>
+                            <div className='flex items-center  gap-1   px-2 py-1 rounded-md '>
                                 <h2 className='text-zinc-900 font-semibold text-lg '>Orçamento:</h2>
 
-                                <p className=' inline-block rounded-md  text-zinc-950 '>
+                                <p className=' inline-block rounded-md  bg-green-400 p-1 text-zinc-950 '>
                                     {' '}
                                     {new Intl.NumberFormat('pt-BR', {
                                         style: 'currency',
                                         currency: 'BRL',
-                                    }).format(Number(trip?.budget))}
+                                    }).format(Number(plan?.budget))}
                                 </p>
                             </div>
                         </div>
@@ -77,39 +77,39 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Origem</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.destiny}
+                                    {plan?.destiny}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Destino</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.origin}
+                                    {plan?.origin}
                                 </div>
                             </div>
 
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Participantes</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.participants}
+                                    {plan?.participants}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Data de ida</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.startDate}
+                                    {plan?.startDate}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Data de volta</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {trip?.endDate}
+                                    {plan?.endDate}
                                 </div>
                             </div>
                         </div>
 
                         <div className='flex  flex-col gap-2'>
                             <h2 className='font-semibold text-2xl text-zinc-900'>Descrição</h2>
-                            <p className=' text-zinc-600 '>{trip?.description}.</p>
+                            <p className=' text-zinc-600 '>{plan?.description}.</p>
                         </div>
                     </div>
                 </div>
@@ -118,4 +118,4 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
     );
 };
 
-export default GetTripById;
+export default GetPlanById;

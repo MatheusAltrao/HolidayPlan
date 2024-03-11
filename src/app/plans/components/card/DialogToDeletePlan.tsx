@@ -1,23 +1,23 @@
 'use client';
-import { Button } from '@/components/ui/button';
+
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { api } from '@/lib/api';
-import { TripProps } from '@/utils/trip.type';
+import { PlanProps } from '@/utils/plan.type';
 import { Trash, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-interface DialogToDeleteTripProps {
-    trip: TripProps;
+interface DialogToDeletePlanProps {
+    plan: PlanProps;
 }
 
-const DialogToDeleteTrip = ({ trip }: DialogToDeleteTripProps) => {
+const DialogToDeletePlan = ({ plan }: DialogToDeletePlanProps) => {
     const router = useRouter();
 
-    async function handleDeleteTrip() {
+    async function handleDeletePlan() {
         try {
-            await api.delete('/api/trips', {
+            await api.delete('/api/plans', {
                 params: {
-                    id: trip.id,
+                    id: plan.id,
                 },
             });
 
@@ -58,7 +58,7 @@ const DialogToDeleteTrip = ({ trip }: DialogToDeleteTripProps) => {
                             </div>
                         </DialogClose>
 
-                        <DialogClose onClick={handleDeleteTrip}>
+                        <DialogClose onClick={handleDeletePlan}>
                             <div className='gap-2  flex items-center justify-center h-10  lg:px-4 lg:py-2  px-2 py-1 font-semibold border-zinc-800 rounded-md  border  bg-red-600 hover:bg-red-700 '>
                                 Apagar <Trash size={18} />{' '}
                             </div>
@@ -70,4 +70,4 @@ const DialogToDeleteTrip = ({ trip }: DialogToDeleteTripProps) => {
     );
 };
 
-export default DialogToDeleteTrip;
+export default DialogToDeletePlan;

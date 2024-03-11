@@ -1,4 +1,4 @@
-export interface TripProps {
+export interface PlanProps {
     id: string;
     title: string;
     origin: string;

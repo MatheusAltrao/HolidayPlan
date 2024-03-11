@@ -8,14 +8,14 @@ import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import Link from 'next/link';
 
-const Trips = async () => {
+const Plans = async () => {
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         redirect('/');
     }
 
-    const trips = await prismaClient.trips.findMany({
+    const plans = await prismaClient.plans.findMany({
         where: {
             userId: session.user.id,
         },
@@ -26,7 +26,7 @@ const Trips = async () => {
             <div className='space-y-8'>
                 <div className='flex items-center justify-between'>
                     <h2 className='title'>Seus Planos</h2>
-                    <Link href={'/newtrip'}>
+                    <Link href={'/newplan'}>
                         <Button
                             className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
                             variant={'outline'}
@@ -36,15 +36,15 @@ const Trips = async () => {
                     </Link>
                 </div>
                 <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-                    {trips.length > 0 && trips.map((trip) => <Card trip={trip} key={trip.id} />)}
+                    {plans.length > 0 && plans.map((plan) => <Card plan={plan} key={plan.id} />)}
                 </div>
 
-                {trips.length == 0 && (
+                {plans.length == 0 && (
                     <p className='text-center text-zinc-400'>
                         Você não tem nenhum plano cadastrada, clique{' '}
                         <Link
                             className='text-blue-500 underline underline-offset-4'
-                            href={'/newtrip'}
+                            href={'/newplan'}
                         >
                             aqui
                         </Link>{' '}
@@ -56,4 +56,4 @@ const Trips = async () => {
     );
 };
 
-export default Trips;
+export default Plans;

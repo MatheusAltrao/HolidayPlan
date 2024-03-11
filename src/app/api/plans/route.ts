@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import prismaClient from '@/lib/prisma';
 
-export async function DELETE(req: Request) {
+export async function DELETE(req: NextRequest) {
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
@@ -11,19 +11,19 @@ export async function DELETE(req: Request) {
     }
 
     const { searchParams } = new URL(req.url);
-    const tripId = searchParams.get('id');
+    const planId = searchParams.get('id');
 
     try {
-        await prismaClient.trips.delete({
+        await prismaClient.plans.delete({
             where: {
-                id: tripId as string,
+                id: planId as string,
             },
         });
 
-        return NextResponse.json({ message: 'Trip deleted successfully!' }, { status: 200 });
+        return NextResponse.json({ message: 'Plan deleted successfully!' }, { status: 200 });
     } catch (error) {
         console.log(error);
-        return NextResponse.json({ error: 'Failed delete trip' }, { status: 400 });
+        return NextResponse.json({ error: 'Failed delete plan' }, { status: 400 });
     }
 }
 
@@ -47,7 +47,7 @@ export async function POST(req: Request) {
     } = await req.json();
 
     try {
-        await prismaClient.trips.create({
+        await prismaClient.plans.create({
             data: {
                 title,
                 origin,
@@ -61,9 +61,9 @@ export async function POST(req: Request) {
             },
         });
 
-        return NextResponse.json({ message: 'Create new trip' });
+        return NextResponse.json({ message: 'Create new plan' });
     } catch (error) {
-        return NextResponse.json({ error: 'Failed create new trip' }, { status: 400 });
+        return NextResponse.json({ error: 'Failed create new plan' }, { status: 400 });
     }
 }
 
@@ -75,15 +75,15 @@ export async function PUT(req: Request) {
     }
 
     const { searchParams } = new URL(req.url);
-    const tripId = searchParams.get('id');
+    const planId = searchParams.get('id');
 
     const { title, origin, destiny, participants, startDate, endDate, budget, description } =
         await req.json();
 
     try {
-        await prismaClient.trips.update({
+        await prismaClient.plans.update({
             where: {
-                id: tripId as string,
+                id: planId as string,
             },
             data: {
                 title,
@@ -96,7 +96,7 @@ export async function PUT(req: Request) {
                 description,
             },
         });
-        return NextResponse.json({ message: 'Updated  trip' });
+        return NextResponse.json({ message: 'Updated  plan' });
     } catch (error) {
         return console.log(error);
     }

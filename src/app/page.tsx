@@ -13,7 +13,7 @@ export default function Home() {
                     <p className='text-base text-zinc-400'>Organize suas férias com HolidayPlan.</p>
                 </div>
 
-                <Link href={'/trips'}>
+                <Link href={'/plans'}>
                     <Button
                         className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
                         variant={'outline'}

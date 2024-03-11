@@ -1,25 +1,28 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import prismaClient from '@/lib/prisma';
 
-export async function GET(req: Request, { params }: { params: { id: string } }) {
+export async function GET(
+    req: NextRequest,
+    { params }: { params: { id: string }; res: NextResponse },
+) {
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
     }
 
-    const tripId = params.id;
+    const planId = params.id;
 
-    const trip = await prismaClient.trips.findFirst({
+    const plan = await prismaClient.plans.findFirst({
         where: {
-            id: tripId as string,
+            id: planId as string,
         },
     });
 
     try {
-        return NextResponse.json({ trip: trip }, { status: 200 });
+        return NextResponse.json({ plan: plan }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: 'bad request' }, { status: 400 });
     }

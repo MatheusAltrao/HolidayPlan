@@ -32,11 +32,11 @@ const schema = z.object({
 
 type IFormData = z.infer<typeof schema>;
 
-interface FormNewTripProps {
+interface FormNewPlanProps {
     userId: string;
 }
 
-const FormNewTrip = ({ userId }: FormNewTripProps) => {
+const FormNewPlan = ({ userId }: FormNewPlanProps) => {
     const [startDate, setStartDate] = useState<Date | undefined>(new Date());
     const [endDate, setEndDate] = useState<Date | undefined>(undefined);
     const router = useRouter();
@@ -58,10 +58,10 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
         resolver: zodResolver(schema),
     });
 
-    async function handleRegisterTrip(data: IFormData) {
+    async function handleRegisterPlan(data: IFormData) {
         setIsLoading(true);
         try {
-            await api.post('/api/trips', {
+            await api.post('/api/plans', {
                 title: data.title,
                 origin: data.origin,
                 destiny: data.destiny,
@@ -72,7 +72,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                 description: data.description,
                 userId: userId,
             });
-            router.replace('/trips');
+            router.replace('/plans');
             router.refresh();
         } catch (error) {
             console.log(error);
@@ -80,7 +80,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(handleRegisterTrip)} className='w-full  space-y-8 pb-8 '>
+        <form onSubmit={handleSubmit(handleRegisterPlan)} className='w-full  space-y-8 pb-8 '>
             <div className='gap-4 grid grid-cols-2 w-full'>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
@@ -249,7 +249,7 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
                 ) : (
                     <div className='flex items-center gap-2'>
                         {' '}
-                        Adicionar Viagem <Plane />
+                        Adicionar Plano <Plane />
                     </div>
                 )}
             </Button>
@@ -257,4 +257,4 @@ const FormNewTrip = ({ userId }: FormNewTripProps) => {
     );
 };
 
-export default FormNewTrip;
+export default FormNewPlan;

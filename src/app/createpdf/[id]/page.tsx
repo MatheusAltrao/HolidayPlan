@@ -4,7 +4,7 @@ import ContainerDiv from '@/components/containerDiv/ContainerDiv';
 import Skeleton from '@/components/skeleton/Skeleton';
 import { Button } from '@/components/ui/button';
 import { api } from '@/lib/api';
-import { TripProps } from '@/utils/trip.type';
+import { PlanProps } from '@/utils/plan.type';
 import { Download, Eye, LoaderCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import generatePDF, { Resolution, Margin, Options } from 'react-to-pdf';
@@ -33,7 +33,7 @@ interface PdfComponentProps {
 }
 
 const PdfComponent = ({ params }: PdfComponentProps) => {
-    const [data, setData] = useState<TripProps>();
+    const [data, setData] = useState<PlanProps>();
     const [isPdfLoading, setIsPdfLoading] = useState(false);
     const [isDataLoading, setIsDataLoading] = useState(true);
 
@@ -41,7 +41,7 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
         const fetchData = async () => {
             try {
                 const response = await api.get(`/api/createpdf/${params.id}`);
-                setData(response.data.trip);
+                setData(response.data.plan);
 
                 setIsDataLoading(false);
             } catch (error) {

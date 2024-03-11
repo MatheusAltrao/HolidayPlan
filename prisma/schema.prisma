@@ -8,7 +8,7 @@ datasource db {
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL") // Only needed when using a cloud provider that doesn't support the creation of new databases, like Heroku. Learn more: https://pris.ly/d/migrate-shadow
 }
 
-model Trips {
+model Plans {
   id           String @id @default(auto()) @map("_id") @db.ObjectId // id unico
   title        String
   origin       String
@@ -57,7 +57,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  trips         Trips[]
+  plan          Plans[]
 }
 
 model VerificationToken {

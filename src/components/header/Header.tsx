@@ -3,10 +3,12 @@ import Link from 'next/link';
 import { Button } from '../ui/button';
 
 import { signIn, useSession, signOut } from 'next-auth/react';
-import { LoaderCircle, Lock, Plane, X } from 'lucide-react';
+import { LoaderCircle, Lock, Plane, Plus, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
     const { status, data } = useSession();
+    const router = useRouter();
 
     async function handleSignIn() {
         await signIn('google');
@@ -22,20 +24,21 @@ const Header = () => {
                 <div className='flex items-center gap-8'>
                     <div>
                         <Link href={'/'}>
-                            <h1 className='text-2xl font-semibold'>HolidayPlan</h1>
+                            <h1 className='title'>HolidayPlan</h1>
                         </Link>
                     </div>
+                </div>
+                <div className='flex items-center gap-2'>
+                    {status == 'authenticated' && (
+                        <Button onClick={handleSignOut} className='gap-2' variant={'outline'}>
+                            {data.user?.name} <X size={16} />
+                        </Button>
+                    )}
                 </div>
 
                 {status == 'unauthenticated' && (
                     <Button onClick={handleSignIn} className=' gap-2' variant={'outline'}>
                         Entrar com Google <Lock className='-mt-1' size={16} />
-                    </Button>
-                )}
-
-                {status == 'authenticated' && (
-                    <Button onClick={handleSignOut} className='gap-2' variant={'outline'}>
-                        {data.user?.name} <X size={16} />
                     </Button>
                 )}
 
