@@ -1,3 +1,16 @@
+<h1 align="center"> Holiday Plan </h1> <br>
+<p align="center">
+    <img src="https://i.pinimg.com/originals/73/17/91/731791a48ea86eca290be2678160464d.png" alt="Holiday plan">
+</p>
+
+<p align="center">
+ Built with Next JS.
+</p>
+
+## Introduction
+
+Welcome to the "2024 - Vacation Plan" project repository, an innovative solution designed to facilitate the management and planning of vacations in the year 2024. This project was developed as part of a test for the Buzzvel 2024 development team, aiming to create an intuitive and responsive user interface to manage vacation plans. Combining cutting-edge functionalities with an attractive design, this application allows users to create, view, edit, and delete vacation plans with ease, in addition to offering the option of generating a detailed PDF for each plan.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -35,18 +48,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-<h1 align="center"> Holiday Plan </h1> <br>
-<p align="center">
-    <img src="https://i.pinimg.com/originals/73/17/91/731791a48ea86eca290be2678160464d.png" alt="Holiday plan">
-</p>
 
-<p align="center">
- Built with Next JS.
-</p>
-
-## Introduction
-
-Welcome to the "2024 - Vacation Plan" project repository, an innovative solution designed to facilitate the management and planning of vacations in the year 2024. This project was developed as part of a test for the Buzzvel 2024 development team, aiming to create an intuitive and responsive user interface to manage vacation plans. Combining cutting-edge functionalities with an attractive design, this application allows users to create, view, edit, and delete vacation plans with ease, in addition to offering the option of generating a detailed PDF for each plan.
 
 ## Technologies Used
 
