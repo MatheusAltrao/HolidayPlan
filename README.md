@@ -46,37 +46,39 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Introduction
 
-Bem-vindo ao repositório do projeto "2024 - Vacation Plan", uma solução inovadora projetada para facilitar a gestão e o planejamento de férias no ano de 2024. Este projeto foi desenvolvido como parte de um teste para a equipe de desenvolvimento da Buzzvel 2024, visando criar uma interface de usuário intuitiva e responsiva para gerenciar planos de férias. Combinando funcionalidades de ponta e um design atraente, esta aplicação permite aos usuários criar, visualizar, editar e deletar planos de férias com facilidade, além de oferecer a opção de gerar um PDF detalhado de cada plano.
+Welcome to the "2024 - Vacation Plan" project repository, an innovative solution designed to facilitate the management and planning of vacations in the year 2024. This project was developed as part of a test for the Buzzvel 2024 development team, aiming to create an intuitive and responsive user interface to manage vacation plans. Combining cutting-edge functionalities with an attractive design, this application allows users to create, view, edit, and delete vacation plans with ease, in addition to offering the option of generating a detailed PDF for each plan.
 
-## Tecnologias Utilizadas
+## Technologies Used
 
-<p>Para atender aos requisitos do projeto e garantir uma experiência de usuário de alta qualidade, optamos por um stack tecnológico moderno e eficiente:</p>
+<p>To meet the project's requirements and ensure a high-quality user experience, we chose a modern and efficient technological stack:</p>
 
--   Next.js: Escolhido pela sua eficiência em renderização do lado do servidor e geração de sites estáticos, Next.js serve como a espinha dorsal do nosso projeto, proporcionando uma experiência de usuário rápida e segura. <br />
--   MongoDB: Como nosso banco de dados, MongoDB oferece a flexibilidade necessária para armazenar e gerenciar os planos de férias com sua estrutura de dados baseada em documentos.<br />
--   Tailwind CSS: Para um design responsivo e personalizável, utilizamos Tailwind CSS, que nos permite construir uma interface de usuário elegante e adaptável sem sacrificar a performance.<br />
--   React Hook Form: A fim de otimizar a validação de formulários e a manipulação de dados, React Hook Form foi integrado para gerenciar formulários com eficiência, melhorando a experiência de interação do usuário.<br />
--   Axios: Para comunicação com a API e manipulação de dados, Axios foi utilizado por sua ampla compatibilidade e facilidade de uso, garantindo uma integração suave e segura com nosso backend.<br />
--   Prisma: Como nosso ORM (Object-Relational Mapping), Prisma nos permite interagir com o banco de dados MongoDB de uma maneira mais intuitiva e segura, simplificando as operações de banco de dados com seu modelo de definição de esquema e consultas de alto nível.<br />
+-   Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.
+<br />
+-   MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
+-   Tailwind CSS: For a responsive and customizable design, we utilized Tailwind CSS, which allows us to build an elegant and adaptable user interface without sacrificing performance.<br />
+-   React Hook Form: To optimize form validation and data handling, React Hook Form was integrated to manage forms efficiently, enhancing the user interaction experience.<br />
+-   Axios: For API communication and data handling, Axios was used for its broad compatibility and ease of use, ensuring a smooth and secure integration with our backend.<br />
+-   Prisma: As our ORM (Object-Relational Mapping), Prisma allows us to interact with the MongoDB database in a more intuitive and safe manner, simplifying database operations with its schema definition model and high-level queries.<br />
 
-<p>Cada escolha tecnológica foi feita com o objetivo de criar uma aplicação robusta, eficiente e fácil de usar, capaz de atender às necessidades de gerenciamento de planos de férias de nossos usuários, enquanto oferece a flexibilidade para evoluir e expandir no futuro.</p>
+<p>Each technological choice was made with the goal of creating a robust, efficient, and user-friendly application capable of meeting our users' vacation planning management needs, while offering the flexibility to evolve and expand in the future.</p>
 
 # Features
 
--   Gerenciamento de Planos de Férias: Os usuários podem criar, visualizar, editar e excluir planos de férias, utilizando uma interface clara e amigável. Cada plano de férias inclui detalhes como título,origem,destino,orçamento, descrição, datas, locais e participantes.<br />
 
--   Design Responsivo: Utilizando Tailwind CSS, a interface foi desenvolvida para ser completamente responsiva, garantindo uma experiência de usuário ótima em diferentes dispositivos e tamanhos de tela.<br />
+-    Vacation Plan Management: Users can create, view, edit, and delete vacation plans using a clear and friendly interface. Each vacation plan includes details such as title, origin, destination, budget, description, dates, locations, and participants.<br />
 
--   Validação de Formulários: Com o React Hook Form, implementamos validações no lado do cliente para garantir que todos os campos obrigatórios sejam preenchidos corretamente e que os formatos de data estejam corretos antes de submeter um plano de férias.<br />
+-    Responsive Design: Using Tailwind CSS, the interface was developed to be fully responsive, ensuring an optimal user experience across different devices and screen sizes.<br />
 
--   Geração de PDF: Os usuários podem gerar e baixar um PDF para qualquer plano de férias criado, facilitando a impressão ou compartilhamento do plano em formato digital com react-to-pdf.<br />
+-    Form Validation: With React Hook Form, we implemented client-side validations to ensure all required fields are correctly filled and the date formats are correct before submitting a vacation plan.<br />
 
--   Integração com MongoDB: Usando Prisma como ORM, a aplicação se conecta de forma segura e eficiente ao MongoDB, permitindo operações de CRUD diretamente do front-end através dos API Routes do Next.js.<br />
+-    PDF Generation: Users can generate and download a PDF for any created vacation plan, facilitating the printing or digital sharing of the plan with react-to-pdf.<br />
 
--   Requisições Assíncronas com Axios: Para uma experiência de usuário suave e dinâmica, utilizamos Axios para realizar requisições HTTP assíncronas, interagindo com a nossa API de forma eficaz.<br />
+-    Integration with MongoDB: Using Prisma as ORM, the application connects securely and efficiently to MongoDB, allowing CRUD operations directly from the frontend through Next.js API Routes.<br />
+
+-    Asynchronous Requests with Axios: For a smooth and dynamic user experience, we used Axios to perform asynchronous HTTP requests, interacting with our API effectively.
 
 # Design
 
 <p>
-Para o design da interface do projeto "2024 - Vacation Plan", optei por uma abordagem minimalista e direta, focando na usabilidade e na estética clean. Utilizei a paleta de cores do Tailwind CSS, escolhendo tons de zinc para a base do design, proporcionando um fundo neutro e sofisticado que facilita a leitura e a navegação. Essa escolha contribui para uma experiência de usuário calmante e descomplicada, evitando distrações e colocando o conteúdo dos planos de férias em destaque. Para complementar, incorporei o azul como cor secundária, usada para destacar elementos interativos, como botões e links, e para chamar a atenção para as informações mais importantes. Esse contraste sutil entre o zinc e o azul cria uma hierarquia visual clara sem sobrecarregar os usuários, alinhando-se perfeitamente com o objetivo de desenvolver uma interface eficiente, atraente e fácil de usar.
+For the interface design of the "2024 - Vacation Plan" project, I opted for a minimalist and straightforward approach, focusing on usability and a clean aesthetic. I utilized the Tailwind CSS color palette, choosing shades of zinc for the design's base, providing a neutral and sophisticated background that facilitates reading and navigation. This choice contributes to a calming and uncomplicated user experience, avoiding distractions and putting the content of the vacation plans in focus. To complement, I incorporated blue as a secondary color, used to highlight interactive elements such as buttons and links, and to draw attention to the most important information. This subtle contrast between zinc and blue creates a clear visual hierarchy without overwhelming the users, perfectly aligning with the objective of developing an efficient, attractive, and easy-to-use interface.
  </p>
