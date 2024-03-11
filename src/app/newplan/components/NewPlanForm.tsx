@@ -103,7 +103,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                     <Input
                         name='budget'
                         type='string'
-                        placeholder='R$ 2500,00'
+                        placeholder='$2,500.00'
                         error={errors.budget?.message}
                         register={register}
                     />
