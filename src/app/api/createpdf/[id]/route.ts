@@ -3,14 +3,14 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import prismaClient from '@/lib/prisma';
 
-export async function GET(req: Request, res: Response) {
+export async function GET(req: Request, { params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
     }
-    const { searchParams } = new URL(req.url);
-    const tripId = searchParams.get('id');
+
+    const tripId = params.id;
 
     const trip = await prismaClient.trips.findFirst({
         where: {
