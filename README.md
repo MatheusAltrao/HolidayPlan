@@ -1,6 +1,6 @@
 <h1 align="center"> Holiday Plan </h1> <br>
 <p align="center">
-    <img src="https://i.pinimg.com/originals/73/17/91/731791a48ea86eca290be2678160464d.png" alt="Holiday plan">
+    <img src="https://i.pinimg.com/originals/2e/3e/23/2e3e2343a49470640abd67361149f9e9.png" alt="Holiday plan">
 </p>
 
 <p align="center">
