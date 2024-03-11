@@ -48,43 +48,72 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
-
 ## Technologies Used
 
 <p>To meet the project's requirements and ensure a high-quality user experience, we chose a modern and efficient technological stack:</p>
 
--    Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.<br />
+-   Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.<br />
 
--    MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
+-   MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
 
--    Tailwind CSS: For a responsive and customizable design, we utilized Tailwind CSS, which allows us to build an elegant and adaptable user interface without sacrificing performance.<br />
+-   Tailwind CSS: For a responsive and customizable design, we utilized Tailwind CSS, which allows us to build an elegant and adaptable user interface without sacrificing performance.<br />
 
--    React Hook Form: To optimize form validation and data handling, React Hook Form was integrated to manage forms efficiently, enhancing the user interaction experience.<br />
+-   React Hook Form: To optimize form validation and data handling, React Hook Form was integrated to manage forms efficiently, enhancing the user interaction experience.<br />
 
--    Axios: For API communication and data handling, Axios was used for its broad compatibility and ease of use, ensuring a smooth and secure integration with our backend.<br />
+-   Axios: For API communication and data handling, Axios was used for its broad compatibility and ease of use, ensuring a smooth and secure integration with our backend.<br />
 
--    Prisma: As our ORM (Object-Relational Mapping), Prisma allows us to interact with the MongoDB database in a more intuitive and safe manner, simplifying database operations with its schema definition model and high-level queries.<br />
+-   Prisma: As our ORM (Object-Relational Mapping), Prisma allows us to interact with the MongoDB database in a more intuitive and safe manner, simplifying database operations with its schema definition model and high-level queries.<br />
 
 <p>Each technological choice was made with the goal of creating a robust, efficient, and user-friendly application capable of meeting our users' vacation planning management needs, while offering the flexibility to evolve and expand in the future.</p>
 
 # Features
 
+-   Vacation Plan Management: Users can create, view, edit, and delete vacation plans using a clear and friendly interface. Each vacation plan includes details such as title, origin, destination, budget, description, dates, locations, and participants.<br />
 
--    Vacation Plan Management: Users can create, view, edit, and delete vacation plans using a clear and friendly interface. Each vacation plan includes details such as title, origin, destination, budget, description, dates, locations, and participants.<br />
+-   Responsive Design: Using Tailwind CSS, the interface was developed to be fully responsive, ensuring an optimal user experience across different devices and screen sizes.<br />
 
--    Responsive Design: Using Tailwind CSS, the interface was developed to be fully responsive, ensuring an optimal user experience across different devices and screen sizes.<br />
+-   Form Validation: With React Hook Form, we implemented client-side validations to ensure all required fields are correctly filled and the date formats are correct before submitting a vacation plan.<br />
 
--    Form Validation: With React Hook Form, we implemented client-side validations to ensure all required fields are correctly filled and the date formats are correct before submitting a vacation plan.<br />
+-   PDF Generation: Users can generate and download a PDF for any created vacation plan, facilitating the printing or digital sharing of the plan with react-to-pdf.<br />
 
--    PDF Generation: Users can generate and download a PDF for any created vacation plan, facilitating the printing or digital sharing of the plan with react-to-pdf.<br />
+-   Integration with MongoDB: Using Prisma as ORM, the application connects securely and efficiently to MongoDB, allowing CRUD operations directly from the frontend through Next.js API Routes.<br />
 
--    Integration with MongoDB: Using Prisma as ORM, the application connects securely and efficiently to MongoDB, allowing CRUD operations directly from the frontend through Next.js API Routes.<br />
-
--    Asynchronous Requests with Axios: For a smooth and dynamic user experience, we used Axios to perform asynchronous HTTP requests, interacting with our API effectively.
+-   Asynchronous Requests with Axios: For a smooth and dynamic user experience, we used Axios to perform asynchronous HTTP requests, interacting with our API effectively.
 
 # Design
 
 <p>
 For the interface design of the "2024 - Vacation Plan" project, I opted for a minimalist and straightforward approach, focusing on usability and a clean aesthetic. I utilized the Tailwind CSS color palette, choosing shades of zinc for the design's base, providing a neutral and sophisticated background that facilitates reading and navigation. This choice contributes to a calming and uncomplicated user experience, avoiding distractions and putting the content of the vacation plans in focus. To complement, I incorporated blue as a secondary color, used to highlight interactive elements such as buttons and links, and to draw attention to the most important information. This subtle contrast between zinc and blue creates a clear visual hierarchy without overwhelming the users, perfectly aligning with the objective of developing an efficient, attractive, and easy-to-use interface.
  </p>
+
+# Back-end
+
+<p>Este projeto implementa uma API RESTful usando Next.js, combinando a potência do Prisma como ORM para interagir com um banco de dados MongoDB, e o Axios para realizar chamadas HTTP externas. As APIs criadas permitem a gestão de "planos", onde usuários podem criar, visualizar e deletar informações relacionadas a planos específicos.</p>
+
+# Back-end Features
+
+### Autenticação de Usuários
+
+<p>This project implements a RESTful API using Next.js, Prisma ORM for MongoDB database interaction, and Axios for external HTTP calls. It supports the comprehensive management of "plans," including Create (POST), Read (GET), Update (PUT), and Delete (DELETE) functionalities, all secured with user authentication.</p>
+
+### Create Plans
+
+<p>Authenticated users can create new plans by submitting data such as title, origin, destination, participants, start and end dates, budget, and description. This information is processed and stored in MongoDB via Prisma.</p>
+
+### Read Plans
+
+<p>
+Example of a request to read a plan: To access the details of a specific plan, you will need to make a GET request to the route /api/plans/{planId}, where {planId} is the ID of the plan you wish to consult. Note that authentication is required to access this information.
+</p>
+
+### Update Plans
+
+<p>To update an existing plan, the API exposes a PUT route that allows modifying the data of a specific plan. Authentication is necessary to ensure that only authorized users can update plans.</p>
+
+### Delete Plans
+
+<p>Authenticated users can also delete existing plans. The API checks the user's authentication before proceeding with the deletion of the specified plan.</p>
+
+# Conclusion
+
+By incorporating Create (POST), Read (GET), Update (PUT), and Delete (DELETE) operations, the API now offers a complete suite of CRUD functionalities. This allows users not only to create and delete plans but also to update and consult them, essential for the development of dynamic and interactive web applications.
