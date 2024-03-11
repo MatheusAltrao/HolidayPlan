@@ -54,8 +54,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 <p>To meet the project's requirements and ensure a high-quality user experience, we chose a modern and efficient technological stack:</p>
 
--    Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.
-<br />
+-    Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.<br />
 
 -    MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
 
