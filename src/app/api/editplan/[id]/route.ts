@@ -4,11 +4,11 @@ import { authOptions } from '@/lib/auth';
 import prismaClient from '@/lib/prisma';
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
-    /*    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         return NextResponse.json({ error: 'Not Authorized' }, { status: 401 });
-    } */
+    }
 
     const planId = params.id;
 
