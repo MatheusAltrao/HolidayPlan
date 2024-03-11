@@ -117,3 +117,10 @@ Example of a request to read a plan: To access the details of a specific plan, y
 # Conclusion
 
 By incorporating Create (POST), Read (GET), Update (PUT), and Delete (DELETE) operations, the API now offers a complete suite of CRUD functionalities. This allows users not only to create and delete plans but also to update and consult them, essential for the development of dynamic and interactive web applications.
+
+# Contact
+
+Owner: Matheus Altrão
+Email: matheusaltrao2@gmail.com
+linkedin:[linkedin.com/matheus-altrao](https://www.linkedin.com/in/matheus-altrao/)
+Portfolio:[www.matheusaltrao.dev](https://www.matheusaltrao.dev/)
