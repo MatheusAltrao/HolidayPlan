@@ -1,5 +1,5 @@
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
-import Card from './components/card/Card';
+import ContainerDiv from '@/components/ContainerDiv';
+import Card from './components/card';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';

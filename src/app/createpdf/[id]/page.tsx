@@ -1,7 +1,7 @@
 'use client';
-import BackToHome from '@/components/backToHome/BackToHome';
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
-import Skeleton from '@/components/skeleton/Skeleton';
+import BackToHome from '@/components/BackToHome';
+import ContainerDiv from '@/components/ContainerDiv';
+import Skeleton from '@/components/Skeleton';
 import { Button } from '@/components/ui/button';
 import { api } from '@/lib/api';
 import { PlanProps } from '@/utils/plan.type';

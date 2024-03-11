@@ -1,11 +1,11 @@
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
+import ContainerDiv from '@/components/ContainerDiv';
 import { authOptions } from '@/lib/auth';
 import { Pen, StickyNote } from 'lucide-react';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import prismaClient from '@/lib/prisma';
 import { Button } from '@/components/ui/button';
-import BackToHome from '@/components/backToHome/BackToHome';
+import BackToHome from '@/components/BackToHome';
 import Link from 'next/link';
 
 interface GetplanByIdProps {

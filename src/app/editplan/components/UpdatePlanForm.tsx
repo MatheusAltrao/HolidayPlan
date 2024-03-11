@@ -9,7 +9,7 @@ import { api } from '@/lib/api';
 import { Calendar } from '@/components/ui/calendar';
 import { useEffect, useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import Input from '@/components/input/Input';
+import Input from '@/components/Input';
 import { PlanProps } from '@/utils/plan.type';
 import { format } from 'date-fns';
 

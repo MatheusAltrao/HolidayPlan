@@ -1,10 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { Button } from '../ui/button';
+import { Button } from './ui/button';
 
 import { signIn, useSession, signOut } from 'next-auth/react';
-import { LoaderCircle, Lock, Plane, Plus, X } from 'lucide-react';
-import { usePathname, useRouter } from 'next/navigation';
+import { LoaderCircle, Lock, Plus, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
     const { status, data } = useSession();

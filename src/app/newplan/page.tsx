@@ -1,9 +1,9 @@
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
+import ContainerDiv from '@/components/ContainerDiv';
 import NewPlanForm from './components/NewPlanForm';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
-import BackToHome from '@/components/backToHome/BackToHome';
+import BackToHome from '@/components/BackToHome';
 
 const NewPlans = async () => {
     const session = await getServerSession(authOptions);

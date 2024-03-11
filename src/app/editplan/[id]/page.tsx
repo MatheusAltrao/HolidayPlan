@@ -1,5 +1,5 @@
-import BackToHome from '@/components/backToHome/BackToHome';
-import ContainerDiv from '@/components/containerDiv/ContainerDiv';
+import BackToHome from '@/components/BackToHome';
+import ContainerDiv from '@/components/ContainerDiv';
 import { Button } from '@/components/ui/button';
 import { authOptions } from '@/lib/auth';
 import { X } from 'lucide-react';
