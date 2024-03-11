@@ -54,13 +54,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 <p>To meet the project's requirements and ensure a high-quality user experience, we chose a modern and efficient technological stack:</p>
 
--   Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.
+-    Next.js: Chosen for its efficiency in server-side rendering and static site generation, Next.js serves as the backbone of our project, providing a fast and secure user experience.
 <br />
--   MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
--   Tailwind CSS: For a responsive and customizable design, we utilized Tailwind CSS, which allows us to build an elegant and adaptable user interface without sacrificing performance.<br />
--   React Hook Form: To optimize form validation and data handling, React Hook Form was integrated to manage forms efficiently, enhancing the user interaction experience.<br />
--   Axios: For API communication and data handling, Axios was used for its broad compatibility and ease of use, ensuring a smooth and secure integration with our backend.<br />
--   Prisma: As our ORM (Object-Relational Mapping), Prisma allows us to interact with the MongoDB database in a more intuitive and safe manner, simplifying database operations with its schema definition model and high-level queries.<br />
+
+-    MongoDB: As our database, MongoDB offers the necessary flexibility to store and manage vacation plans with its document-based data structure.<br />
+
+-    Tailwind CSS: For a responsive and customizable design, we utilized Tailwind CSS, which allows us to build an elegant and adaptable user interface without sacrificing performance.<br />
+
+-    React Hook Form: To optimize form validation and data handling, React Hook Form was integrated to manage forms efficiently, enhancing the user interaction experience.<br />
+
+-    Axios: For API communication and data handling, Axios was used for its broad compatibility and ease of use, ensuring a smooth and secure integration with our backend.<br />
+
+-    Prisma: As our ORM (Object-Relational Mapping), Prisma allows us to interact with the MongoDB database in a more intuitive and safe manner, simplifying database operations with its schema definition model and high-level queries.<br />
 
 <p>Each technological choice was made with the goal of creating a robust, efficient, and user-friendly application capable of meeting our users' vacation planning management needs, while offering the flexibility to evolve and expand in the future.</p>
 
