@@ -15,11 +15,9 @@ const NewPlans = async () => {
     return (
         <ContainerDiv>
             <div className='space-y-8'>
-                <div className='space-y-4'>
-                    <BackToHome />
-                    <div className='flex items-center justify-between'>
-                        <h2 className='title'>Create new Plan</h2>
-                    </div>
+                <BackToHome href='/plans' />
+                <div className='flex items-center justify-between'>
+                    <h2 className='title'>Create new Plan</h2>
                 </div>
 
                 <NewPlanForm userId={session.user.id} />

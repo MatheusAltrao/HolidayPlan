@@ -30,8 +30,8 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
 
     return (
         <ContainerDiv>
-            <div className='space-y-4'>
-                <BackToHome />
+            <div className='space-y-8'>
+                <BackToHome href='/plans' />
 
                 <div className='space-y-4'>
                     <div className='flex items-center justify-between'>

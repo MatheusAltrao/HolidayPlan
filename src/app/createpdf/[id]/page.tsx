@@ -64,9 +64,11 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
     return (
         <ContainerDiv>
             <div className='space-y-8'>
-                <BackToHome />
+                <BackToHome href={`/plans/${params.id}`} />
+
                 <div className='space-y-8'>
-                    <div className='flex items-center justify-end'>
+                    <div className='flex items-center justify-between'>
+                        <h2 className='title'>Create PDF</h2>
                         <Button
                             onClick={handlePreviewPdf}
                             className=' font-bold  border-none bg-blue-600 hover:bg-blue-700'
@@ -82,7 +84,7 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
                                     Download <Download size={20} />{' '}
                                 </div>
                             )}
-                        </Button>
+                        </Button>{' '}
                     </div>
                     <div className='p-4  bg-zinc-50 rounded' id='content-id'>
                         <div className='flex items-center justify-center'>

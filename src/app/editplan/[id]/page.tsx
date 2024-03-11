@@ -31,21 +31,18 @@ const EditPlan = async ({ params }: EditPlanProps) => {
     return (
         <ContainerDiv>
             <div className='space-y-8'>
-                <div className='space-y-4'>
-                    <BackToHome />
-                    <div className='flex items-center justify-between'>
-                        <h2 className='title'>Editar Plano</h2>
-                        <Link href={`/plans/${params.id}`}>
-                            <Button
-                                variant={'outline'}
-                                className='bg-red-600 hover:bg-red-700 border-none gap-2'
-                            >
-                                Cancel <X size={20} />
-                            </Button>
-                        </Link>
-                    </div>
+                <BackToHome href={`/plans/${params.id}`} />
+                <div className='flex items-center justify-between'>
+                    <h2 className='title'>Edit Plan</h2>
+                    <Link href={`/plans/${params.id}`}>
+                        <Button
+                            variant={'outline'}
+                            className='bg-red-600 hover:bg-red-700 border-none gap-2'
+                        >
+                            Cancel <X size={20} />
+                        </Button>
+                    </Link>
                 </div>
-
                 <UpdatePlanForm userId={params.id} plan={plan} />
             </div>
         </ContainerDiv>
