@@ -1,13 +1,13 @@
 import BackToHome from '@/components/BackToHome';
 import ContainerDiv from '@/components/ContainerDiv';
 import { Button } from '@/components/ui/button';
-import { authOptions } from '@/lib/auth';
 import { X } from 'lucide-react';
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
 import UpdatePlanForm from '../components/UpdatePlanForm';
 import prismaClient from '@/lib/prisma';
 import Link from 'next/link';
+import { authOptions } from '@/lib/auth';
+import { redirect } from 'next/navigation';
+import { getServerSession } from 'next-auth';
 
 interface EditPlanProps {
     params: {
@@ -16,11 +16,11 @@ interface EditPlanProps {
 }
 
 const EditPlan = async ({ params }: EditPlanProps) => {
-    /*  const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
         redirect('/');
-    } */
+    }
 
     const plan = await prismaClient.plans.findFirst({
         where: {

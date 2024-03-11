@@ -14,21 +14,21 @@ import { PlanProps } from '@/utils/plan.type';
 import { format } from 'date-fns';
 
 const schema = z.object({
-    title: z.string().min(1, 'Título obrigatório'),
-    origin: z.string().min(1, 'origem obrigatório'),
-    destiny: z.string().min(1, 'origem obrigatório'),
+    title: z.string().min(1, 'Required Title.'),
+    origin: z.string().min(1, 'Required Origin.'),
+    destiny: z.string().min(1, 'Required Destiny.'),
     participants: z
         .string()
-        .min(1, 'Participantes obrigatório.')
+        .min(1, 'Required Participants.')
         .refine(
             (value) => /^\d+$/.test(value),
-            "O campo 'Participantes' deve conter apenas números.",
+            "The field 'participants' must contain only numbers.",
         ),
     budget: z
         .string()
-        .min(1, 'Orçamento obrigatório.')
-        .refine((value) => /^\d+$/.test(value), 'O campo Orçamento deve conter apenas números.'),
-    description: z.string().min(1, 'Coloque as informacoes sobre o plano '),
+        .min(1, 'Required Budget.')
+        .refine((value) => /^\d+$/.test(value), "The field 'Budget' must contain only numbers."),
+    description: z.string().min(1, 'Enter information about the plan '),
 });
 
 type IFormData = z.infer<typeof schema>;
@@ -151,7 +151,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                     <Input
                         name='origin'
                         type='text'
-                        placeholder='Brasil'
+                        placeholder='Brazil'
                         error={errors.origin?.message}
                         register={register}
                     />
@@ -164,7 +164,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                     <Input
                         name='destiny'
                         type='text'
-                        placeholder='Brasil'
+                        placeholder='Portugal'
                         error={errors.destiny?.message}
                         register={register}
                     />
