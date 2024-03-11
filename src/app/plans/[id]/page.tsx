@@ -67,9 +67,9 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
 
                                 <p className=' inline-block rounded-md  bg-green-400 p-1 text-zinc-950 '>
                                     {' '}
-                                    {new Intl.NumberFormat('pt-BR', {
+                                    {new Intl.NumberFormat('en-US', {
                                         style: 'currency',
-                                        currency: 'BRL',
+                                        currency: 'USD',
                                     }).format(Number(plan?.budget))}
                                 </p>
                             </div>

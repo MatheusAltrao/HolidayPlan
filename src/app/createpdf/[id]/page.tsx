@@ -88,7 +88,7 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
                     </div>
                     <div className='p-4  bg-zinc-50 rounded' id='content-id'>
                         <div className='flex items-center justify-center'>
-                            <div className='title text-center truncate text-zinc-900 w-40'>
+                            <div className='title text-center p-4 truncate text-zinc-900 w-full'>
                                 <Skeleton content={data?.title} />
                             </div>
                         </div>
@@ -101,17 +101,17 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
                         >
                             <div className=' flex items-center justify-between '>
                                 <div className='flex items-center  gap-1    rounded-md '>
-                                    <h2 className=' text-green-600 font-semibold text-lg '>
+                                    <h2 className='text-zinc-900 font-semibold text-lg '>
                                         Budget:
                                     </h2>
 
-                                    <div>
+                                    <div className='text-green-600 '>
                                         {data?.budget !== undefined || null ? (
                                             <p className='  rounded-md  text-zinc-950 '>
                                                 {' '}
-                                                {new Intl.NumberFormat('pt-BR', {
+                                                {new Intl.NumberFormat('en-US', {
                                                     style: 'currency',
-                                                    currency: 'BRL',
+                                                    currency: 'USD',
                                                 }).format(Number(data?.budget))}
                                             </p>
                                         ) : (
