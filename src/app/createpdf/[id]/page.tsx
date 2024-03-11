@@ -36,8 +36,6 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
     const [data, setData] = useState<PlanProps>();
     const [isPdfLoading, setIsPdfLoading] = useState(false);
 
-    console.log(params.id);
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -102,7 +100,7 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
                             <div className=' flex items-center justify-between '>
                                 <div className='flex items-center  gap-1    rounded-md '>
                                     <h2 className=' text-green-600 font-semibold text-lg '>
-                                        Orçamento:
+                                        Budget:
                                     </h2>
 
                                     <div>
@@ -123,13 +121,13 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
 
                             <div className='grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_110px_110px] gap-8 lg:gap-2'>
                                 <div className='space-y-1'>
-                                    <p className='font-semibold text-zinc-600 text-sm'>Origem</p>
+                                    <p className='font-semibold text-zinc-600 text-sm'>Origin</p>
                                     <div className='  text-zinc-950'>
                                         <Skeleton content={data?.origin} />
                                     </div>
                                 </div>
                                 <div className='space-y-1'>
-                                    <p className='font-semibold text-zinc-600 text-sm'>Destino</p>
+                                    <p className='font-semibold text-zinc-600 text-sm'>Destiny</p>
                                     <div className='  text-zinc-950'>
                                         {' '}
                                         <Skeleton content={data?.destiny} />
@@ -138,24 +136,20 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
 
                                 <div className='space-y-1'>
                                     <p className='font-semibold text-zinc-600 text-sm'>
-                                        Participantes
+                                        Participants
                                     </p>
                                     <div className='  text-zinc-950'>
                                         <Skeleton content={data?.participants} />
                                     </div>
                                 </div>
                                 <div className='space-y-1'>
-                                    <p className='font-semibold text-zinc-600 text-sm'>
-                                        Data de ida
-                                    </p>
+                                    <p className='font-semibold text-zinc-600 text-sm'>Check-in</p>
                                     <div className='  text-zinc-950'>
                                         <Skeleton content={data?.startDate} />
                                     </div>
                                 </div>
                                 <div className='space-y-1'>
-                                    <p className='font-semibold text-zinc-600 text-sm'>
-                                        Data de volta
-                                    </p>
+                                    <p className='font-semibold text-zinc-600 text-sm'>Check-out</p>
                                     <div className='  text-zinc-950'>
                                         {' '}
                                         <Skeleton content={data?.endDate} />
@@ -164,7 +158,9 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
                             </div>
 
                             <div className='flex  flex-col gap-2'>
-                                <h2 className='font-semibold text-2xl text-zinc-900'>Descrição</h2>
+                                <h2 className='font-semibold text-2xl text-zinc-900'>
+                                    Description
+                                </h2>
                                 <div className='text-zinc-500'>
                                     <Skeleton content={data?.description} />
                                 </div>

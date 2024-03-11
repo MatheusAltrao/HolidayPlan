@@ -106,7 +106,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
             <div className='gap-4 grid grid-cols-2 w-full'>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Título</p>
+                        <p>Title</p>
                     </label>
 
                     <Input
@@ -119,7 +119,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Orçamento</p>
+                        <p>Budget</p>
                     </label>
 
                     <Input
@@ -132,7 +132,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Participantes</p>
+                        <p>Participants</p>
                     </label>
 
                     <Input
@@ -145,7 +145,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Origem</p>
+                        <p>Origin</p>
                     </label>
 
                     <Input
@@ -158,7 +158,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Destino</p>
+                        <p>Destiny</p>
                     </label>
 
                     <Input
@@ -171,7 +171,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Data de ida </p>
+                        <p>Check-in</p>
                     </label>
 
                     <Popover>
@@ -204,7 +204,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>{' '}
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Data de volta </p>
+                        <p>Check-out</p>
                     </label>
 
                     <Popover>
@@ -238,7 +238,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                 </div>
                 <div className='space-y-2 w-full col-span-2 '>
                     <label>
-                        <p>Descrição</p>
+                        <p>Description</p>
                     </label>
 
                     <div className='space-y-1 w-full'>

@@ -8,7 +8,7 @@ const BackToHome = () => {
                 href={'/plans'}
                 className='flex items-center gap-3 opacity-60 hover:opacity-100 transition-opacity'
             >
-                <ArrowLeft size={20} /> <span>Voltar</span>
+                <ArrowLeft size={20} /> <span>Back</span>
             </Link>
         </div>
     );

@@ -22,7 +22,7 @@ const Card = ({ plan }: CardProps) => {
                 <div className='flex items-center gap-2 ml-auto'>
                     <Link href={`/plans/${plan.id}`}>
                         <Button
-                            title='Ver plano'
+                            title='See plan'
                             className='hover:text-blue-600'
                             size={'icon'}
                             variant={'outline'}

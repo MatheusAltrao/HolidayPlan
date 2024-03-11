@@ -7,6 +7,7 @@ import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import UpdatePlanForm from '../components/UpdatePlanForm';
 import prismaClient from '@/lib/prisma';
+import Link from 'next/link';
 
 interface EditPlanProps {
     params: {
@@ -34,12 +35,14 @@ const EditPlan = async ({ params }: EditPlanProps) => {
                     <BackToHome />
                     <div className='flex items-center justify-between'>
                         <h2 className='title'>Editar Plano</h2>
-                        <Button
-                            variant={'outline'}
-                            className='bg-red-600 hover:bg-red-700 border-none gap-2'
-                        >
-                            Cancelar <X size={20} />
-                        </Button>
+                        <Link href={`/plans/${params.id}`}>
+                            <Button
+                                variant={'outline'}
+                                className='bg-red-600 hover:bg-red-700 border-none gap-2'
+                            >
+                                Cancel <X size={20} />
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 

@@ -84,20 +84,20 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
             <div className='gap-4 grid grid-cols-2 w-full'>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Título</p>
+                        <p>Title</p>
                     </label>
 
                     <Input
                         name='title'
                         type='text'
-                        placeholder='Viagem de aniversário'
+                        placeholder='trip with friends'
                         error={errors.title?.message}
                         register={register}
                     />
                 </div>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Orçamento</p>
+                        <p>Budget</p>
                     </label>
 
                     <Input
@@ -110,7 +110,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>
                 <div className='space-y-2 w-full col-span-2'>
                     <label>
-                        <p>Participantes</p>
+                        <p>Participants</p>
                     </label>
 
                     <Input
@@ -123,7 +123,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Origem</p>
+                        <p>Origin</p>
                     </label>
 
                     <Input
@@ -136,7 +136,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Destino</p>
+                        <p>Destiny</p>
                     </label>
 
                     <Input
@@ -149,7 +149,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Data de ida </p>
+                        <p>Check-in</p>
                     </label>
 
                     <Popover>
@@ -183,7 +183,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>{' '}
                 <div className='space-y-2 w-full'>
                     <label>
-                        <p>Data de volta </p>
+                        <p>Check-out</p>
                     </label>
 
                     <Popover>
@@ -217,13 +217,13 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 </div>
                 <div className='space-y-2 w-full col-span-2 '>
                     <label>
-                        <p>Descrição</p>
+                        <p>Description</p>
                     </label>
 
                     <div className='space-y-1 w-full'>
                         <textarea
                             {...register('description')}
-                            placeholder='Visitar os monumentos e ...'
+                            placeholder='Take documents and ...'
                             className='w-full placeholder:text-zinc-400 bg-zinc-900 focus:outline-none rounded-md p-2 h-[140px] resize-none  '
                         />
 
@@ -249,7 +249,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 ) : (
                     <div className='flex items-center gap-2'>
                         {' '}
-                        Adicionar Plano <Plane />
+                        Add Plan <Plane />
                     </div>
                 )}
             </Button>

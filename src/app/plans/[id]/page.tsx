@@ -42,7 +42,7 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
                                     className='gap-2  font-bold  border-none bg-red-600 hover:bg-red-700'
                                     variant={'outline'}
                                 >
-                                    Gerar PDF <StickyNote size={18} />
+                                    Generate PDF <StickyNote size={18} />
                                 </Button>
                             </Link>
 
@@ -51,7 +51,7 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
                                     className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
                                     variant={'outline'}
                                 >
-                                    Editar <Pen size={18} />
+                                    Edit <Pen size={18} />
                                 </Button>
                             </Link>
                         </div>
@@ -62,8 +62,8 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
                         className='p-8   rounded-lg bg-zinc-100   flex flex-col gap-8'
                     >
                         <div className=' flex items-center justify-between '>
-                            <div className='flex items-center  gap-1   px-2 py-1 rounded-md '>
-                                <h2 className='text-zinc-900 font-semibold text-lg '>Orçamento:</h2>
+                            <div className='flex items-center  gap-1 rounded-md '>
+                                <h2 className='text-zinc-900 font-semibold text-lg '>Budget:</h2>
 
                                 <p className=' inline-block rounded-md  bg-green-400 p-1 text-zinc-950 '>
                                     {' '}
@@ -77,32 +77,32 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
 
                         <div className='grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_110px_110px] gap-2'>
                             <div className='space-y-1'>
-                                <p className='font-semibold text-zinc-600 text-sm'>Origem</p>
-                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
-                                    {plan?.destiny}
-                                </div>
-                            </div>
-                            <div className='space-y-1'>
-                                <p className='font-semibold text-zinc-600 text-sm'>Destino</p>
+                                <p className='font-semibold text-zinc-600 text-sm'>Origin</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {plan?.origin}
                                 </div>
                             </div>
+                            <div className='space-y-1'>
+                                <p className='font-semibold text-zinc-600 text-sm'>Destiny</p>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                    {plan?.destiny}
+                                </div>
+                            </div>
 
                             <div className='space-y-1'>
-                                <p className='font-semibold text-zinc-600 text-sm'>Participantes</p>
+                                <p className='font-semibold text-zinc-600 text-sm'>Participants</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {plan?.participants}
                                 </div>
                             </div>
                             <div className='space-y-1'>
-                                <p className='font-semibold text-zinc-600 text-sm'>Data de ida</p>
+                                <p className='font-semibold text-zinc-600 text-sm'>Check-in</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {plan?.startDate}
                                 </div>
                             </div>
                             <div className='space-y-1'>
-                                <p className='font-semibold text-zinc-600 text-sm'>Data de volta</p>
+                                <p className='font-semibold text-zinc-600 text-sm'>Check-out</p>
                                 <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {plan?.endDate}
                                 </div>
@@ -110,7 +110,7 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
                         </div>
 
                         <div className='flex  flex-col gap-2'>
-                            <h2 className='font-semibold text-2xl text-zinc-900'>Descrição</h2>
+                            <h2 className='font-semibold text-2xl text-zinc-900'>Description</h2>
                             <p className=' text-zinc-600 '>{plan?.description}.</p>
                         </div>
                     </div>

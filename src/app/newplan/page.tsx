@@ -18,7 +18,7 @@ const NewPlans = async () => {
                 <div className='space-y-4'>
                     <BackToHome />
                     <div className='flex items-center justify-between'>
-                        <h2 className='title'>Criar novo Plano</h2>
+                        <h2 className='title'>Create new Plan</h2>
                     </div>
                 </div>
 

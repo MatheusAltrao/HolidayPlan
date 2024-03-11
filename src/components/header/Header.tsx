@@ -8,7 +8,6 @@ import { usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
     const { status, data } = useSession();
-    const router = useRouter();
 
     async function handleSignIn() {
         await signIn('google');
@@ -38,7 +37,7 @@ const Header = () => {
                                     className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
                                     variant={'outline'}
                                 >
-                                    Ver Planos <Plus size={20} />
+                                    Plans <Plus size={20} />
                                 </Button>
                             </Link>
                             <Button onClick={handleSignOut} className='gap-2' variant={'outline'}>
@@ -50,7 +49,7 @@ const Header = () => {
 
                 {status == 'unauthenticated' && (
                     <Button onClick={handleSignIn} className=' gap-2' variant={'outline'}>
-                        Entrar com Google <Lock className='-mt-1' size={16} />
+                        Sign in with Google <Lock className='-mt-1' size={16} />
                     </Button>
                 )}
 
