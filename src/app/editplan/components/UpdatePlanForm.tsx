@@ -1,7 +1,6 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
-import { CalendarCheck, LoaderCircle, Plane } from 'lucide-react';
+import { CalendarCheck, LoaderCircle, Plane, Save } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
@@ -10,7 +9,9 @@ import { api } from '@/lib/api';
 import { Calendar } from '@/components/ui/calendar';
 import { useEffect, useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import Input from './Input';
+import Input from '@/components/input/Input';
+import { PlanProps } from '@/utils/plan.type';
+import { format } from 'date-fns';
 
 const schema = z.object({
     title: z.string().min(1, 'Título obrigatório'),
@@ -32,11 +33,12 @@ const schema = z.object({
 
 type IFormData = z.infer<typeof schema>;
 
-interface FormNewPlanProps {
+interface UpdatePlanFormProps {
     userId: string;
+    plan: PlanProps | null;
 }
 
-const FormNewPlan = ({ userId }: FormNewPlanProps) => {
+const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
     const [startDate, setStartDate] = useState<Date | undefined>(new Date());
     const [endDate, setEndDate] = useState<Date | undefined>(undefined);
     const router = useRouter();
@@ -53,15 +55,36 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
     const {
         register,
         handleSubmit,
+        setValue,
         formState: { errors },
     } = useForm<IFormData>({
         resolver: zodResolver(schema),
     });
 
+    useEffect(() => {
+        if (plan) {
+            setValue('title', plan.title);
+            setValue('origin', plan.origin);
+            setValue('destiny', plan.destiny);
+            setValue('participants', plan.participants!);
+            setValue('budget', plan.budget!);
+            setValue('description', plan.description);
+            if (plan.startDate) {
+                const formatStartDate = format(new Date(plan.startDate), 'dd/MM/yyyy');
+                setStartDate(new Date(formatStartDate));
+            }
+            if (plan.endDate) {
+                const formatEndDate = format(new Date(plan.endDate), 'dd/MM/yyyy');
+                setEndDate(new Date(formatEndDate));
+            }
+        }
+    }, [plan, setValue]);
+
     async function handleRegisterPlan(data: IFormData) {
+        console.log(data);
         setIsLoading(true);
         try {
-            await api.post('/api/plans', {
+            await api.put(`/api/editplan/${plan?.id}`, {
                 title: data.title,
                 origin: data.origin,
                 destiny: data.destiny,
@@ -78,7 +101,6 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
             console.log(error);
         }
     }
-
     return (
         <form onSubmit={handleSubmit(handleRegisterPlan)} className='w-full  space-y-8 pb-8 '>
             <div className='gap-4 grid grid-cols-2 w-full'>
@@ -175,7 +197,6 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                                 mode='single'
                                 selected={startDate}
                                 onSelect={setStartDate}
-                                fromDate={new Date()}
                                 className='rounded-md '
                             />
                         </PopoverContent>
@@ -249,7 +270,7 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
                 ) : (
                     <div className='flex items-center gap-2'>
                         {' '}
-                        Adicionar Plano <Plane />
+                        Salvar Plano <Save />
                     </div>
                 )}
             </Button>
@@ -257,4 +278,4 @@ const FormNewPlan = ({ userId }: FormNewPlanProps) => {
     );
 };
 
-export default FormNewPlan;
+export default UpdatePlanForm;

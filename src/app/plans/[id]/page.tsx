@@ -46,12 +46,14 @@ const GetPlanById = async ({ params }: GetplanByIdProps) => {
                                 </Button>
                             </Link>
 
-                            <Button
-                                className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
-                                variant={'outline'}
-                            >
-                                Editar <Pen size={18} />
-                            </Button>
+                            <Link href={`/editplan/${plan?.id}`}>
+                                <Button
+                                    className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
+                                    variant={'outline'}
+                                >
+                                    Editar <Pen size={18} />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
 

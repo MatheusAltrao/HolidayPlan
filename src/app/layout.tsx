@@ -8,7 +8,14 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Holiday Plan',
-    description: 'Holiday Plan',
+    description: 'Planeja as suas férias com Holiday Plan ',
+    icons: {
+        icon: [
+            {
+                url: '/favicon.png',
+            },
+        ],
+    },
 };
 
 export default function RootLayout({

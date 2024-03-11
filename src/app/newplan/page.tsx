@@ -1,5 +1,5 @@
 import ContainerDiv from '@/components/containerDiv/ContainerDiv';
-import FormNewPlan from './components/FormNewPlan';
+import NewPlanForm from './components/NewPlanForm';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { redirect } from 'next/navigation';
@@ -22,7 +22,7 @@ const NewPlans = async () => {
                     </div>
                 </div>
 
-                <FormNewPlan userId={session.user.id} />
+                <NewPlanForm userId={session.user.id} />
             </div>
         </ContainerDiv>
     );

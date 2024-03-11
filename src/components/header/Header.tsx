@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 
 import { signIn, useSession, signOut } from 'next-auth/react';
 import { LoaderCircle, Lock, Plane, Plus, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const Header = () => {
     const { status, data } = useSession();
@@ -18,6 +18,8 @@ const Header = () => {
         await signOut();
     }
 
+    const pathname = usePathname();
+
     return (
         <header className='w-full mx-auto max-w-[1200px] p-4 '>
             <div className='flex items-center justify-between border-b border-zinc-800 py-4'>
@@ -30,9 +32,19 @@ const Header = () => {
                 </div>
                 <div className='flex items-center gap-2'>
                     {status == 'authenticated' && (
-                        <Button onClick={handleSignOut} className='gap-2' variant={'outline'}>
-                            {data.user?.name} <X size={16} />
-                        </Button>
+                        <div className='flex items-center gap-2'>
+                            <Link className={`${pathname !== '/' && 'hidden'}`} href={'/plans'}>
+                                <Button
+                                    className='gap-2  font-bold  border-none bg-blue-600 hover:bg-blue-700'
+                                    variant={'outline'}
+                                >
+                                    Ver Planos <Plus size={20} />
+                                </Button>
+                            </Link>
+                            <Button onClick={handleSignOut} className='gap-2' variant={'outline'}>
+                                {data.user?.name} <X size={16} />
+                            </Button>
+                        </div>
                     )}
                 </div>
 

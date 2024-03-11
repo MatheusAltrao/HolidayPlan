@@ -35,18 +35,16 @@ interface PdfComponentProps {
 const PdfComponent = ({ params }: PdfComponentProps) => {
     const [data, setData] = useState<PlanProps>();
     const [isPdfLoading, setIsPdfLoading] = useState(false);
-    const [isDataLoading, setIsDataLoading] = useState(true);
+
+    console.log(params.id);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await api.get(`/api/createpdf/${params.id}`);
                 setData(response.data.plan);
-
-                setIsDataLoading(false);
             } catch (error) {
                 console.error(error);
-                setIsDataLoading(false);
             }
         };
 
@@ -64,8 +62,6 @@ const PdfComponent = ({ params }: PdfComponentProps) => {
         generatePDF(getTargetElement, options);
         handleLoading();
     };
-
-    console.log(data?.title);
 
     return (
         <ContainerDiv>
