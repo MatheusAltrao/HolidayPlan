@@ -5,7 +5,7 @@ import Skeleton from '@/components/skeleton/Skeleton';
 import { Button } from '@/components/ui/button';
 import { api } from '@/lib/api';
 import { PlanProps } from '@/utils/plan.type';
-import { Download, Eye, LoaderCircle } from 'lucide-react';
+import { Download, LoaderCircle } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import generatePDF, { Resolution, Margin, Options } from 'react-to-pdf';
 
