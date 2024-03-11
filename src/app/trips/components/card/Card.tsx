@@ -10,16 +10,16 @@ interface CardProps {
 
 const Card = ({ trip }: CardProps) => {
     return (
-        <div className='rounded p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
-            <div className='flex items-center justify-between'>
-                <div className='space-y-0.5 w-full'>
+        <div className='rounded-md  p-4 border border-zinc-800  w-full flex flex-col gap-4  hover:border-zinc-500 transition-colors'>
+            <div className='grid grid-cols-3 '>
+                <div className='space-y-0.5 col-span-2  w-full'>
                     <p className='text-sm text-zinc-400'>
                         {trip.startDate} - {trip.endDate}
                     </p>
-                    <h3 className='text-xl font-bold truncate '>{trip.title}</h3>{' '}
+                    <p className='text-xl font-bold truncate  '>{trip.title}</p>{' '}
                 </div>
 
-                <div className='flex items-center gap-2'>
+                <div className='flex items-center gap-2 ml-auto'>
                     <Link href={`/trips/${trip.id}`}>
                         <Button
                             title='Ver viagem'

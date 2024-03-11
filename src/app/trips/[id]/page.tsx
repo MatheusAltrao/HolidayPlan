@@ -35,7 +35,7 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
 
                 <div className='space-y-4'>
                     <div className='flex items-center justify-between'>
-                        <h1 className='text-2xl  font-semibold truncate'>{trip?.title}</h1>
+                        <h1 className='title truncate'>{trip?.title}</h1>
                         <div className='flex items-center justify-end gap-2'>
                             <Link href={`/createpdf/${trip?.id}`}>
                                 <Button
@@ -60,10 +60,10 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                         className='p-8   rounded-lg bg-zinc-100   flex flex-col gap-8'
                     >
                         <div className=' flex items-center justify-between '>
-                            <div className='flex items-center  gap-1 w-[220px] bg-green-400 px-2 py-1 rounded '>
+                            <div className='flex items-center  gap-1 w-[220px] bg-green-400 px-2 py-1 rounded-md '>
                                 <h2 className='text-zinc-900 font-semibold text-lg '>Orçamento:</h2>
 
-                                <p className=' inline-block rounded  text-zinc-950 '>
+                                <p className=' inline-block rounded-md  text-zinc-950 '>
                                     {' '}
                                     {new Intl.NumberFormat('pt-BR', {
                                         style: 'currency',
@@ -73,35 +73,35 @@ const GetTripById = async ({ params }: GetTripByIdProps) => {
                             </div>
                         </div>
 
-                        <div className='grid grid-cols-[1fr_1fr_1fr_110px_110px] gap-2'>
+                        <div className='grid grid-cols-1 lg:grid-cols-[1fr_1fr_1fr_110px_110px] gap-2'>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Origem</p>
-                                <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {trip?.destiny}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Destino</p>
-                                <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {trip?.origin}
                                 </div>
                             </div>
 
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Participantes</p>
-                                <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {trip?.participants}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Data de ida</p>
-                                <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {trip?.startDate}
                                 </div>
                             </div>
                             <div className='space-y-1'>
                                 <p className='font-semibold text-zinc-600 text-sm'>Data de volta</p>
-                                <div className=' rounded p-2 h-10 border-zinc-400 border text-zinc-950'>
+                                <div className=' rounded-md p-2 h-10 border-zinc-400 border text-zinc-950'>
                                     {trip?.endDate}
                                 </div>
                             </div>
