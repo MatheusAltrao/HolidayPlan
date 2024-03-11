@@ -76,9 +76,13 @@
 }
 
 .input {
-    @apply h-10 p-2 w-full  rounded  focus:outline-none bg-zinc-900;
+    @apply h-10 p-2 w-full  rounded-md  focus:outline-none bg-zinc-900;
 }
 
 .input::placeholder {
     @apply text-zinc-400;
+}
+
+.title {
+    @apply text-lg lg:text-2xl font-bold;
 }
