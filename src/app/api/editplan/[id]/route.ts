@@ -12,10 +12,18 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
     const planId = params.id;
 
-    const { title, origin, destiny, participants, startDate, endDate, budget, description } =
-        await req.json();
-
     try {
+        const { title, origin, destiny, participants, startDate, endDate, budget, description } =
+            await req.json();
+
+        const existingPlan = await prismaClient.plans.findUnique({
+            where: { id: planId as string },
+        });
+
+        if (!existingPlan) {
+            return NextResponse.json({ error: 'Plan not found' }, { status: 404 });
+        }
+
         await prismaClient.plans.update({
             where: {
                 id: planId as string,
@@ -31,8 +39,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
                 description,
             },
         });
-        return NextResponse.json({ message: 'Updated  plan' });
+        return NextResponse.json({ message: 'Plan updated successfully' });
     } catch (error) {
+        console.error('Error updating plan:', error);
         return NextResponse.json(
             { error: 'An error occurred while updating the plan.' },
             { status: 500 },

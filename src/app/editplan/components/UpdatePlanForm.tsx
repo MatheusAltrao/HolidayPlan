@@ -81,7 +81,6 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
     }, [plan, setValue]);
 
     async function handleRegisterPlan(data: IFormData) {
-        console.log(data);
         setIsLoading(true);
         try {
             await api.put(`/api/editplan/${plan?.id}`, {

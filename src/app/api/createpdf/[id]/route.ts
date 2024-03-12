@@ -12,13 +12,16 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
 
     const planId = params.id;
 
-    const plan = await prismaClient.plans.findFirst({
-        where: {
-            id: planId as string,
-        },
-    });
-
     try {
+        const plan = await prismaClient.plans.findFirst({
+            where: {
+                id: planId as string,
+            },
+        });
+
+        if (!plan) {
+            return NextResponse.json({ error: 'Plan not found' }, { status: 404 });
+        }
         return NextResponse.json({ plan: plan }, { status: 200 });
     } catch (error) {
         return NextResponse.json({ error: 'bad request' }, { status: 400 });
