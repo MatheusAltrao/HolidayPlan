@@ -8,7 +8,7 @@ export default function Home() {
                 <div>
                     <h1 className='text-2xl font-bold text-blue-600'>Plans with HolidayPlan</h1>
                     <p className='text-base text-zinc-400'>
-                        Organize your vacation with HolidayPlan..
+                        Organize your vacation with HolidayPlan.
                     </p>
                 </div>
             </div>

@@ -197,7 +197,7 @@ const UpdatePlanForm = ({ userId, plan }: UpdatePlanFormProps) => {
                                 mode='single'
                                 selected={startDate}
                                 onSelect={setStartDate}
-                                className='rounded-md '
+                                className='rounded-md  '
                             />
                         </PopoverContent>
                     </Popover>
