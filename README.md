@@ -88,11 +88,11 @@ For the interface design of the "2024 - Vacation Plan" project, I opted for a mi
 
 # Back-end
 
-<p>Este projeto implementa uma API RESTful usando Next.js, combinando a potência do Prisma como ORM para interagir com um banco de dados MongoDB, e o Axios para realizar chamadas HTTP externas. As APIs criadas permitem a gestão de "planos", onde usuários podem criar, visualizar e deletar informações relacionadas a planos específicos.</p>
+<p>This project implements a RESTful API using Next.js, combining the power of Prisma as an ORM to interact with a MongoDB database, and Axios to make external HTTP calls. The APIs created allow the management of "plans", where users can create, view and delete information related to specific plans.</p>
 
 # Back-end Features
 
-### Autenticação de Usuários
+### Auth
 
 <p>This project implements a RESTful API using Next.js, Prisma ORM for MongoDB database interaction, and Axios for external HTTP calls. It supports the comprehensive management of "plans," including Create (POST), Read (GET), Update (PUT), and Delete (DELETE) functionalities, all secured with user authentication.</p>
 
